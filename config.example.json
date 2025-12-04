@@ -1,0 +1,65 @@
+{
+  "projects_configs": {
+    "project_1": {
+      "name": "Project One",
+      "host": "localhost",
+      "scenarios": {
+        "metrics": {
+          "users": 1,
+          "spawn_rate": 1,
+          "run_time": "1m"
+        },
+        "regular": {
+          "users": 20,
+          "spawn_rate": 1,
+          "run_time": "5m"
+        },
+        "stress": {
+          "users": 500,
+          "spawn_rate": 20,
+          "run_time": "10m"
+        },
+        "custom": {
+          "stages": [
+            {
+              "duration": 10,
+              "users": 20,
+              "spawn_rate": 1
+            },
+            {
+              "duration": 60,
+              "users": 50,
+              "spawn_rate": 60
+            },
+            {
+              "duration": 90,
+              "users": 125,
+              "spawn_rate": 90
+            }
+          ]
+        }
+      }
+    },
+    "project_2": {
+      "name": "Project Two",
+      "host": "localhost",
+      "scenarios": {
+        "metrics": {
+          "users": 1,
+          "spawn_rate": 1,
+          "run_time": "1m"
+        },
+        "regular": {
+          "users": 20,
+          "spawn_rate": 1,
+          "run_time": "5m"
+        },
+        "stress": {
+          "users": 500,
+          "spawn_rate": 20,
+          "run_time": "10m"
+        }
+      }
+    }
+  }
+}

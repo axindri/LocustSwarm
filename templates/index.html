@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Locust Swarm</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='index.css') }}" />
+    <link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%22.9em%22 font-size=%2290%22>🦗</text></svg>" />
+  </head>
+
+  <body>
+    <div class="container">
+      <header class="header">
+        <h1>Locust Swarm 🦗</h1>
+        <p class="subtitle">Launcher and aggregator of Locust stress tests, using isolated Docker containers</p>
+        <a href="/docs" target="_blank" class="link">Documentation</a>
+      </header>
+
+      <section class="card">
+        <div class="section-header">
+          <h2>Launch Parameters</h2>
+        </div>
+
+        <div class="form-group">
+          <label>Configuration:</label>
+          <div class="checkbox-group">
+            <input type="checkbox" id="edit-config" />
+            <label for="edit-config" class="checkbox-label">Custom config.json</label>
+          </div>
+        </div>
+
+        <div class="config-wrapper">
+          <div class="config-content">
+            <textarea id="config-textarea" placeholder="Configuration in JSON format..."></textarea>
+            <div class="config-actions">
+              <button id="load-config-btn" class="btn btn-info">Load current</button>
+              <button id="save-config-btn" class="btn btn-success">Save</button>
+            </div>
+          </div>
+        </div>
+
+        <form id="testForm">
+          <div class="form-group">
+            <label>Project:</label>
+            <select id="project" name="project" required></select>
+          </div>
+
+          <div class="form-group">
+            <label>Scenario:</label>
+            <select id="scenario" name="scenario" required></select>
+          </div>
+
+          <div class="form-group">
+            <label>Mode:</label>
+            <div class="checkbox-group">
+              <input type="checkbox" id="in_web" name="in_web" checked />
+              <label for="in_web" class="checkbox-label">Locust UI web panel</label>
+            </div>
+          </div>
+
+          <div class="form-group">
+            <label>Auth Token:</label>
+            <input type="text" id="auth_token" name="auth_token" placeholder="Bearer token" />
+          </div>
+
+          <div class="form-group">
+            <label>Parallel execution:</label>
+            <span>{{ allow_parallel }}</span>
+          </div>
+
+          <div class="form-footer">
+            <button type="submit" class="btn btn-primary btn-full">Start test</button>
+          </div>
+        </form>
+      </section>
+
+      <section class="card">
+        <div class="section-header">
+          <h2>Active Tests</h2>
+          <div class="actions">
+            <span id="active-refresh-indicator" class="indicator" style="display: none">Refreshing...</span>
+            <button onclick="reloadActiveTests()" class="btn btn-secondary">Refresh</button>
+            <button onclick="stopAllTests()" class="btn btn-danger">Clear</button>
+          </div>
+        </div>
+        <div id="active-tests" class="scroll-area">Loading...</div>
+      </section>
+
+      <section class="card">
+        <div class="section-header">
+          <h2>All Tests</h2>
+          <div class="actions">
+            <span id="completed-refresh-indicator" class="indicator" style="display: none">Refreshing...</span>
+            <button onclick="reloadCompletedTests()" class="btn btn-secondary">Refresh</button>
+          </div>
+        </div>
+        <div id="completed-tests" class="scroll-area">
+          <button onclick="loadCompletedTests()" class="btn btn-primary btn-full">Load</button>
+        </div>
+      </section>
+
+      <section class="card">
+        <div class="section-header">
+          <h2>Debug</h2>
+          <a href="/api/debug/docker" class="link" target="_blank">Show container info</a>
+        </div>
+        <div class="debug-actions">
+          <button onclick="cleanupDocker()" class="btn btn-primary btn-full">Clear all containers</button>
+        </div>
+      </section>
+    </div>
+
+    <div id="notify-message" class="notify"></div>
+
+    <script src="{{ url_for('static', filename='index.js') }}"></script>
+  </body>
+</html>
