@@ -1,4 +1,4 @@
-![LocustSwarm Preview](img/preview-1.png)
+![LocustSwarm Preview](img/preview.png)
 
 # LocustSwarm
 
