@@ -1,3 +1,29 @@
+![LocustSwarm Preview](img/preview-1.png)
+
+# LocustSwarm
+
+**Launcher and aggregator of Locust load tests in Docker containers**
+
+## About
+
+LocustSwarm is a web-based interface for managing and orchestrating Locust load tests with Docker container isolation. Each test runs in its own isolated Docker container, ensuring complete separation and preventing interference between different test scenarios.
+
+### Key Features
+
+- 🐳 **Docker Isolation** - Each test runs in a separate container for complete isolation
+- 🎯 **Multiple Scenarios** - Support for predefined and custom multi-stage load scenarios
+- 📊 **Web Interface** - User-friendly web UI for managing tests and viewing results
+- 🔄 **Real-time Monitoring** - Track active tests and access Locust web panels
+- 📁 **Results Management** - Automatic collection and archiving of test results
+- ⚙️ **Flexible Configuration** - JSON-based configuration for projects and scenarios
+
+### Use Cases
+
+- Load testing of web applications and APIs
+- Performance testing with isolated test environments
+- Multi-project test management
+- Custom load patterns with stage-based scenarios
+
 # Quick Start
 
 ## 1. Creating Virtual Environment and Installing Dependencies

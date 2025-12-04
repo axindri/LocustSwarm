@@ -1,6 +1,8 @@
 # LocustSwarm
 **Launcher and aggregator of Locust load tests in Docker containers**
 
+![LocustSwarm Interface](img/preview.png)
+
 ## 📌 Main Purpose
 Web interface for managing load tests with isolation of each test in a separate Docker container. Supports both predefined scenarios and custom scenarios with multi-stage load.
 
